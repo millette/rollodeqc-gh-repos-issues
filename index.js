@@ -22,12 +22,50 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 'use strict'
 
-module.exports = function (str, opts) {
-  if (typeof str !== 'string') {
-    throw new TypeError('Expected a string')
+// core
+const qs = require('querystring')
+
+// npm
+const ghGot = require('gh-got')
+
+// own
+const bookworm = require('rollodeqc-gh-bookworm')
+const utils = require('rollodeqc-gh-utils')
+
+const fetchPage = (options) => ghGot(
+  typeof options === 'object'
+    ? `repos/${options.repo_fullname}/issues?` + qs.stringify(options)
+    : options
+)
+
+const methods = {
+  getItems: (result) => result && result.body,
+  updateItems: (result, inner) => {
+    inner.body = result.body.concat(inner.body)
+    return inner
   }
-
-  opts = opts || {}
-
-  return str + ' & ' + (opts.postfix || 'rainbows')
 }
+
+module.exports = (repoFullname) => bookworm.bookworm({
+  repo_fullname: repoFullname,
+  per_page: 100
+}, fetchPage, methods)
+  .then((x) => x.body)
+  .then((x) => x.map(utils.chosenFields))
+  .then((x) => x.map((y) => {
+    y.user = utils.chosenFields(y.user)
+
+    if (y.labels && y.labels.length) {
+      y.labels = y.labels.map(utils.chosenFields)
+    } else {
+      delete y.labels
+    }
+
+    if (y.milestone) {
+      y.milestone = utils.chosenFields(y.milestone)
+      y.milestone.creator = utils.chosenFields(y.milestone.creator)
+    }
+
+    if (!y.assignees || !y.assignees.length) { delete y.assignees }
+    return y
+  }))
