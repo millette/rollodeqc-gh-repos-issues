@@ -44,6 +44,9 @@ const cli = meow([
 ])
 
 rollodeqcGhReposIssues(cli.input[0] || 'unicorns')
-  .then((response) => {
-    console.log(response)
+  .then((x) => {
+    console.log(JSON.stringify(x, null, ' '))
+  })
+  .catch((e) => {
+    console.log(JSON.stringify(e, null, ' '))
   })
