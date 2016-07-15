@@ -65,3 +65,5 @@ $ rollodeqc-gh-repos-issues --help
 
 ## License
 AGPL-v3 © [Robin Millette](http://robin.millette.info)
+
+[update-notifier]: <https://github.com/yeoman/update-notifier>
