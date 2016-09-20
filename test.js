@@ -1,11 +1,10 @@
-/*eslint arrow-parens: [2, "as-needed"]*/
 'use strict'
 import test from 'ava'
 import fn from './'
 
 test('large', async t => {
   const result = await fn('FreeCodeCamp/FreeCodeCamp')
-  t.truthy(result.length > 300)
+  t.truthy(result.length > 200 && result.length < 350)
 })
 
 test('small', async t => {
