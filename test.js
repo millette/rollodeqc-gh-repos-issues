@@ -4,7 +4,7 @@ import fn from './'
 
 test('large', async t => {
   const result = await fn('FreeCodeCamp/FreeCodeCamp')
-  t.truthy(result.length > 100 && result.length < 500)
+  t.truthy(result.length > 400 && result.length < 700)
 })
 
 test('small', async t => {
