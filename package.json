@@ -31,7 +31,7 @@
   ],
   "dependencies": {
     "gh-got": "^8.1.0",
-    "meow": "^3.7.0",
+    "meow": "^5.0.0",
     "rollodeqc-gh-bookworm": "^1.0.0",
     "rollodeqc-gh-utils": "^1.0.0",
     "update-notifier": "^3.0.1"
