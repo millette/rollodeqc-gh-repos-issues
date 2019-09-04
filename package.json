@@ -34,7 +34,7 @@
     "meow": "^3.7.0",
     "rollodeqc-gh-bookworm": "^1.0.0",
     "rollodeqc-gh-utils": "^1.0.0",
-    "update-notifier": "^2.2.0"
+    "update-notifier": "^3.0.1"
   },
   "devDependencies": {
     "ava": "^2.3.0",
