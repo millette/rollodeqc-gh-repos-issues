@@ -12,4 +12,4 @@ test('small', async t => {
   t.truthy(result.length < 100)
 })
 
-test('not found', t => t.throws(fn('millette/committed-streaker666'), 'Response code 404 (Not Found)'))
+test('not found', t => t.throwsAsync(fn('millette/committed-streaker666'), 'Response code 404 (Not Found)'))
