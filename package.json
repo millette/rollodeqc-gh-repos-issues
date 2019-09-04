@@ -11,7 +11,7 @@
   },
   "bin": "cli.js",
   "engines": {
-    "node": ">=4"
+    "node": ">=8"
   },
   "scripts": {
     "lint": "standard",
@@ -30,10 +30,10 @@
     "github"
   ],
   "dependencies": {
-    "gh-got": "^5.0.0",
+    "gh-got": "^8.1.0",
     "meow": "^3.7.0",
-    "rollodeqc-gh-bookworm": "^0.4.0",
-    "rollodeqc-gh-utils": "^0.3.4",
+    "rollodeqc-gh-bookworm": "^1.0.0",
+    "rollodeqc-gh-utils": "^1.0.0",
     "update-notifier": "^2.2.0"
   },
   "devDependencies": {
