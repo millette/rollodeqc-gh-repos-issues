@@ -37,7 +37,7 @@
     "update-notifier": "^2.2.0"
   },
   "devDependencies": {
-    "ava": "^0.19.1",
+    "ava": "^2.3.0",
     "babel-eslint": "^7.2.3",
     "coveralls": "^3.0.6",
     "nyc": "^14.1.1",
